@@ -14,8 +14,8 @@
 		<h1>Hot Restaurant</h1>
 		<hr class="my-4">
 		<h4>Current Reservations and Waiting List.</h4>
-		<a class="btn btn-danger btn-lg" href="reserve.html" role="button">Make Reservations</a>
-		<a class="btn btn-primary btn-lg" href="index.html" role="button">Home</a>
+		<a class="btn btn-danger btn-lg" href="/reserve" role="button">Make Reservations</a>
+		<a class="btn btn-primary btn-lg" href="/" role="button">Home</a>
 	</div>
 
 	<!-- Card to Display Current Reservations	-->
@@ -38,6 +38,30 @@
 		</ul>
 	</div>
 </div>
+
+
+<script type="text/javascript">
+
+	function init() {
+		$.get("/api-reserv/", function(data) {
+			console.log(data);
+			// if (data) {
+				// $("#stats").show();
+				// $("#name").text(data.name);
+				// $("#role").text(data.role);
+				// $("#age").text(data.age);
+				// $("#force-points").text(data.forcePoints);
+			// } else {
+			// 	$("#name").text(
+			// 		"The force is not strong with this one. Your character was not found.");
+			// 	$("#stats").hide();
+			// }
+		// });
+	});
+}
+
+init();
+</script>
 
 </body>
 </html>
