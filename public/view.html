@@ -52,13 +52,13 @@
 	function init() {
 		let count = 1;
 		$.get("/api-reserve/", function(data) {
-			let index = data.indexOf();
-			console.log(index);
+
+			console.log(data);
 			let customerName = data[0].customerName;
 			console.log(customerName);
 			if (data.length > 5) {
 			//	Write output to waiting list
-				let resNumber = $('<th tyle="width:10%">').text(count);
+				let resNumber = $('<th style="width:10%">').text(count);
 				let reservation = $('<th class="col-10">').text(customerName);
 				$('#waitingList').append(resNumber, reservation);
 				count += 1;
