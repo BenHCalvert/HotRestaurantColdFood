@@ -74,7 +74,6 @@
                 id: $("#id").val().trim(),
             };
 
-            // Question: What does this code do??
             $.post("/api-reserve", newReservation)
                 .then(function (data) {
                     // console.log("add.html", data);
