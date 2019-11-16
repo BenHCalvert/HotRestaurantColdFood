@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/BenHCalvert/HotRestaurantColdFood/issues"
   },
-  "homepage": "https://github.com/BenHCalvert/HotRestaurantColdFood#readme"
+  "homepage": "https://github.com/BenHCalvert/HotRestaurantColdFood#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
