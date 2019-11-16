@@ -7,6 +7,9 @@ const PORT = 3005;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// tell Express to serve static files in public and data directories
+app.use(express.static("public"));
+app.use(express.static("data"));
 
 // Start the server & listen to incoming requests
 app.listen(PORT, function() {
