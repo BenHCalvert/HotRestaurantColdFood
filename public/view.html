@@ -11,35 +11,30 @@
 <body>
 <div class="container">
 	<div class="jumbotron text-center">
-		<h1 class="display-4">Hot Restaurant</h1>
-		<p class="lead">Current Reservations and Waiting List.</p>
+		<h1>Hot Restaurant</h1>
 		<hr class="my-4">
-		<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-		<a class="btn btn-danger btn-lg" href="/reservation" role="button">Make Reservations</a>
-		<a class="btn btn-primary btn-lg" href="/" role="button">Home</a>
+		<h4>Current Reservations and Waiting List.</h4>
+		<a class="btn btn-danger btn-lg" href="reserve.html" role="button">Make Reservations</a>
+		<a class="btn btn-primary btn-lg" href="index.html" role="button">Home</a>
 	</div>
 
 	<!-- Card to Display Current Reservations	-->
-	<!--TODO Add jquery for adding reservations-->
 	<div class="card" style="width: 100%;">
 		<div class="card-header"><strong>Current Reservations</strong>
 		</div>
 		<ul class="list-group list-group-flush">
-			<li class="list-group-item">Cras justo odio</li>
-			<li class="list-group-item">Dapibus ac facilisis in</li>
-			<li class="list-group-item">Vestibulum at eros</li>
+<!--		Dynamically add <li> elements-->
 		</ul>
 	</div>
 	<br>
+
 	<!-- Card to Display The waiting List-->
 
 	<div class="card" style="width: 100%;">
 		<div class="card-header"><strong>Waiting List</strong>
 		</div>
 		<ul class="list-group list-group-flush">
-			<li class="list-group-item">Cras justo odio</li>
-			<li class="list-group-item">Dapibus ac facilisis in</li>
-			<li class="list-group-item">Vestibulum at eros</li>
+		<!--	Dynamically add <li> elements -->
 		</ul>
 	</div>
 </div>
