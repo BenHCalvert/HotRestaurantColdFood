@@ -23,7 +23,7 @@ app.listen(PORT, function() {
     // html pages
     app.get("/", function(req, res) {
         res.sendFile(path.join(`${__dirname}/public`, "index.html"));
-        getReservations();
+        
     });
     
     app.get("/reserve", function(req, res) {
@@ -31,13 +31,15 @@ app.listen(PORT, function() {
     });
 
     app.get("/view", function(req, res) {
-    res.sendFile(path.join(`${__dirname}/public`, "view.html"));
+    res.sendFile(path.join(`${__dirname}/public`, "view.html"));      
+        
     });
 
     // routes to return json
     // reservations
     app.get("/api-reserve", function(req, res) {
-    res.json(reservations);
+        const results = getReservations();
+        res.json(results);
     });
 
     // tables
@@ -88,8 +90,9 @@ app.post("/api-reserve", function(req, res) {
     console.log(newReservation);
     
     //add the json the user sent to the character array
-    reservations.push(newReservation);
+    // reservations.push(newReservation);
     
     //display the JSON to the users
     res.json(newReservation);
+    storeReservation(newReservation);
     });
