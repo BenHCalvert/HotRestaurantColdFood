@@ -11,10 +11,10 @@ class Reservation {
     this.phone =  phone;
   }
 
-  getName()  { return this.name; }
-  getId()    { return this.id; }
-  getEmail() { return this.email; }
-  getphone() { return this.phone; }
+  getName()  { return this.customerName; }
+  getId()    { return this.customerId; }
+  getEmail() { return this.customerEmail; }
+  getphone() { return this.customerPhone; }
 }
 
 // const test = new Reservation("me","123", "123@123",123);
