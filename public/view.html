@@ -23,12 +23,8 @@
 		<div class="card-header">
 			<strong>Current Reservations</strong>
 		</div>
-		<table class="table">
-			<thead class="thead-dark">
-				<tr id="reservations">
-				</tr>
-			</thead>
-		</table>
+		<ul class="list-unstyled" id="reservations">
+		</ul>
 	</div>
 	<br>
 
@@ -37,12 +33,8 @@
 	<div class="card" style="width: 100%;">
 		<div class="card-header"><strong>Waiting List</strong>
 		</div>
-		<table class="table">
-			<thead class="thead-dark">
-			<tr id="waitingList">
-			</tr>
-			</thead>
-		</table>
+		<ul class="list-unstyled" id="waitingList">
+		</ul>
 	</div>
 </div>
 
@@ -52,27 +44,26 @@
 	function init() {
 		let count = 1;
 		$.get("/api-reserve/", function(data) {
-			let index = data.indexOf();
-			console.log(index);
-			let customerName = data[0].customerName;
+
+			console.log(data);
+			for (let i = 0; i < data.length; i++){
+			let customerName = data[i].customerName;
 			console.log(customerName);
 			if (data.length > 5) {
 			//	Write output to waiting list
-				let resNumber = $('<th tyle="width:10%">').text(count);
-				let reservation = $('<th class="col-10">').text(customerName);
-				$('#waitingList').append(resNumber, reservation);
+				let reservation = $('<li class="m-3 shadow p-3">').text(count + ' | ' + customerName);
+				$('#waitingList').append(reservation);
 				count += 1;
 
 			}
 			else
 				{
 			//	write output to reservation list
-				let resNumber = $('<th tyle="width:10%">').text(count);
-				let reservation = $('<th class="col-10">').text(customerName);
-				$('#reservations').append(resNumber, reservation);
+					let reservation = $('<li class="m-3 shadow p-3">').text(count + ' | ' + customerName);
+				$('#reservations').append(reservation);
 				count += 1;
 				}
-
+			}
 
 	});
 }

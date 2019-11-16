@@ -1,8 +1,8 @@
 const http = require('http');
 const express = require('express');
 const path = require('path');
-// const getReservations = require('./data/getReservations');
-// const getReservations = require('./data/storeReservations');
+const manageReservations = require('./data/manageReservations');
+const getReservations = manageReservations[0];
 
 const app = express();
 const PORT = 3005;
@@ -23,6 +23,7 @@ app.listen(PORT, function() {
     // html pages
     app.get("/", function(req, res) {
         res.sendFile(path.join(`${__dirname}/public`, "index.html"));
+        getReservations();
     });
     
     app.get("/reserve", function(req, res) {
