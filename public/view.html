@@ -20,11 +20,15 @@
 
 	<!-- Card to Display Current Reservations	-->
 	<div class="card" style="width: 100%;">
-		<div class="card-header"><strong>Current Reservations</strong>
+		<div class="card-header">
+			<strong>Current Reservations</strong>
 		</div>
-		<ul class="list-group list-group-flush">
-<!--		Dynamically add <li> elements-->
-		</ul>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr id="reservations">
+				</tr>
+			</thead>
+		</table>
 	</div>
 	<br>
 
@@ -33,9 +37,12 @@
 	<div class="card" style="width: 100%;">
 		<div class="card-header"><strong>Waiting List</strong>
 		</div>
-		<ul class="list-group list-group-flush">
-		<!--	Dynamically add <li> elements -->
-		</ul>
+		<table class="table">
+			<thead class="thead-dark">
+			<tr id="waitingList">
+			</tr>
+			</thead>
+		</table>
 	</div>
 </div>
 
@@ -43,20 +50,30 @@
 <script type="text/javascript">
 
 	function init() {
-		$.get("/api-reserv/", function(data) {
-			console.log(data);
-			// if (data) {
-				// $("#stats").show();
-				// $("#name").text(data.name);
-				// $("#role").text(data.role);
-				// $("#age").text(data.age);
-				// $("#force-points").text(data.forcePoints);
-			// } else {
-			// 	$("#name").text(
-			// 		"The force is not strong with this one. Your character was not found.");
-			// 	$("#stats").hide();
-			// }
-		// });
+		let count = 1;
+		$.get("/api-reserve/", function(data) {
+			let index = data.indexOf();
+			console.log(index);
+			let customerName = data[0].customerName;
+			console.log(customerName);
+			if (data.length > 5) {
+			//	Write output to waiting list
+				let resNumber = $('<th tyle="width:10%">').text(count);
+				let reservation = $('<th class="col-10">').text(customerName);
+				$('#waitingList').append(resNumber, reservation);
+				count += 1;
+
+			}
+			else
+				{
+			//	write output to reservation list
+				let resNumber = $('<th tyle="width:10%">').text(count);
+				let reservation = $('<th class="col-10">').text(customerName);
+				$('#reservations').append(resNumber, reservation);
+				count += 1;
+				}
+
+
 	});
 }
 
