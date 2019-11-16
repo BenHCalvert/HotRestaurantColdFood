@@ -11,10 +11,10 @@ function getReservations() {
 const storeReservation = (res) => {
   // const newRes = new Reservation(res.customerName,res.customerPhone,res.customerEmail,res.customerId);
   const newRes = {
-    customerName: res.customerName,
-    customerPhone: res.customerPhone,
-    customerEmail: res.customerEmail,
-    customerId: res.customerId
+    customerName: res.name,
+    customerPhone: res.phone,
+    customerEmail: res.email,
+    customerId: res.id
   };
   reservationList.push(newRes);
 };
