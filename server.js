@@ -1,12 +1,17 @@
 const http = require('http');
 const express = require('express');
 const path = require('path');
+// const getReservations = require('./data/getReservations');
+// const getReservations = require('./data/storeReservations');
 
 const app = express();
 const PORT = 3005;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// tell Express to serve static files in public and data directories
+app.use(express.static("public"));
+app.use(express.static("data"));
 
 // Start the server & listen to incoming requests
 app.listen(PORT, function() {
@@ -42,11 +47,36 @@ app.listen(PORT, function() {
 // array to hold reservations
 var reservations = [
     {
-      customerName: "yoda",
-      customerPhone: "1-800-Yoda",
-      customerEmail: "Jedi Master",
-      customerID: 666,
-    }]
+    customerName: "yoda",
+    customerPhone: "1-800-Yoda",
+    customerEmail: "Jedi Master",
+    customerID: 666,
+    },
+    {
+    customerName: "Jason",
+    customerPhone: "1-800-8888",
+    customerEmail: "email@email.com",
+    customerID: 777,
+    },
+    {
+    customerName: "Bob",
+    customerPhone: "1-800-9999",
+    customerEmail: "bob@bob.com",
+    customerID: 888,
+    },
+    {
+    customerName: "Eric",
+    customerPhone: "1-800-1010",
+    customerEmail: "eric@eric.com",
+    customerID: 999,
+    },
+    {
+    customerName: "Gabe",
+    customerPhone: "1-800-1111",
+    customerEmail: "Gabe@gabe.com",
+    customerID: 1000,
+    },
+]
 
 // post new reservation
 app.post("/api-reserve", function(req, res) {
