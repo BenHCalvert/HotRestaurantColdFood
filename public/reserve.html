@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hot Restaurant</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Hot Restaurant</h1>
+            <p class="lead">Make a Reservation.</p>
+            <hr class="my-4">
+            <a class="btn btn-primary btn-lg" href="/view" role="button">View Tables</a>
+            <a class="btn btn-danger btn-lg" href="/" role="button">Home</a>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title bg-secondary text-white py-2 ">Make a Reservation</h4>
+                    </div>
+                    <div class="panel-body">
+
+
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="text" class="form-control" id="number" placeholder="Phone Number">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                                    placeholder="Enter email">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+                                    anyon else.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="id">Uniquie ID</label>
+                                <input type="text" class="form-control" id="id" placeholder="Reservation ID">
+                            </div>
+                            <button type="submit" id="reservationSubmit" class="btn btn-lg btn-primary">Make
+                                Reservation</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $("#reservationSubmit").on("click", function (event) {
+            event.preventDefault();
+            let newReservation = {
+                name: $("#name").val().trim(),
+                number: $("#number").val().trim(),
+                email: $("#email").val().trim(),
+                id: $("#id").val().trim(),
+            };
+
+            // Question: What does this code do??
+            $.post("/api-reserve", newReservation)
+                .then(function (data) {
+                    // console.log("add.html", data);
+                    // alert("Adding character...");
+                });
+        });
+
+    </script>
+
+</body>
+
+</html>
