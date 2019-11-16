@@ -1,5 +1,4 @@
 // Reservation form event handler
-// Question: What does this code do?
 $("#reservationSubmit").on("click", function (event) {
   event.preventDefault();
   let newReservation = {
