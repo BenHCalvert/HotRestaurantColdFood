@@ -4,11 +4,11 @@
 
 class Reservation {
   constructor(name,phone,email,id) {
-    this.name = name;
-    this.id = id; 
+    this.customerName = name;
+    this.customerId = id; 
     // this.id = uuidv1(); 
-    this.email =  email;
-    this.phone =  phone;
+    this.customerEmail =  email;
+    this.customerPhone =  phone;
   }
 
   getName()  { return this.customerName; }
