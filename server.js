@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const manageReservations = require('./data/manageReservations');
 const getReservations = manageReservations[0];
+const storeReservations = manageReservations[1];
 
 const app = express();
 const PORT = 3005;
@@ -94,5 +95,5 @@ app.post("/api-reserve", function(req, res) {
     
     //display the JSON to the users
     res.json(newReservation);
-    storeReservation(newReservation);
+    storeReservations(newReservation);
     });
