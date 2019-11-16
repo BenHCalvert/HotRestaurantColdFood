@@ -1,0 +1,19 @@
+.display-4 {
+    text-align: center;
+    color: brown;
+    /* background-color: bisque;  */
+} 
+p {
+    text-align: center;
+    text-decoration-color: rgb(221, 217, 211);
+    color: bisque;
+}
+.jumbotron {
+    width: 100%;
+    height: 10px;
+} 
+.lead {
+    text-decoration-color: whitesmoke;}
+.btn {
+    align-self: auto;
+}
