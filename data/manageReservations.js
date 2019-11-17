@@ -9,7 +9,7 @@ function getReservations() {
 };
 
 const storeReservation = (res) => {
-  const newRes = new Reservation(res.customerName,res.customerPhone,res.customerEmail,res.customerId);
+  const newRes = new Reservation(res.name,res.number,res.email,res.id);
   reservationList.push(newRes);
 };
 

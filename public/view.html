@@ -45,7 +45,7 @@
 		let count = 1;
 		$.get("/api-reserve/", function(data) {
 
-			console.log(data);
+			console.log("get data in view",data);
 			for (let i = 0; i < data.length; i++){
 			let customerName = data[i].customerName;
 			console.log(customerName);
